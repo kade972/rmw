@@ -19,8 +19,9 @@
         Enrico Maria Caporossi
     </author>
 <preference name="phonegap-version"           value="2.9.0" />
-<gap:plugin name="org.apache.cordova.media" />
+
 <gap:plugin name="com.simplec.plugins.powermanagement" />
+<gap:plugin name="com.rjfun.cordova.plugin.lowlatencyaudio" />
   <icon src="icon.png" />
 
 <gap:splash src="icon.png"  gap:platform="android" gap:density="ldpi" />
