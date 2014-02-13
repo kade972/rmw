@@ -16,23 +16,20 @@
     <author href="https://www.radiomedweb.com" email="info@radiomedweb.com">
         Enrico Maria Caporossi
     </author>
+<preference name="phonegap-version"           value="3.1.0" />
+<gap:plugin name="org.apache.cordova.media" /> 
+<gap:plugin name="com.badrit.backgroundjs" />
+  <icon src="icon.png" />
 
-
-<js-module src="www/BackgroundJS.js" name="BackgroundJS">
-        <clobbers target="navigator.BackgroundJS" />
-    </js-module>
-
-    <!-- ios -->
-    <platform name="ios">
-       <config-file target="config.xml" parent="/*">
-           <feature name="BackgroundJS">
-               <param name="ios-package" value="BackgroundJS" />
-           </feature>
-       </config-file>
-
-       <header-file src="src/ios/BackgroundJS.h" />
-       <source-file src="src/ios/BackgroundJS.m" />
-   </platform>
-
-
+<gap:splash src="icon.png"  gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="icon.png"  gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="icon.png"  gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="icon.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="icon.png"         gap:platform="blackberry" />
+    <gap:splash src="icon.png"    gap:platform="ios"     width="320" height="480" />
+    <gap:splash src="icon.png" gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="icon.png"      gap:platform="ios"     width="768" height="1024" />
+    <gap:splash src="icon.png"     gap:platform="ios"     width="1024" height="768" />
+    <gap:splash src="icon.png" gap:platform="winphone" />
+<access origin="*"/> 
 </widget>
