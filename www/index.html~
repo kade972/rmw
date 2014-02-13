@@ -4,10 +4,7 @@
       <head>
         <title>Media Example</title>
 
-        <link rel="stylesheet" href="jquery.mobile1.0b3.min.css" />
-        <script type="text/javascript" charset="utf-8" src="jquery1.6.4.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="jquery.mobile1.0b3.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
         <script type="text/javascript" charset="utf-8">
 
         // Wait for device API libraries to load
