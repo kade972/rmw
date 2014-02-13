@@ -17,6 +17,7 @@
         Enrico Maria Caporossi
     </author>
 <preference name="phonegap-version"           value="3.1.0" />
+<gap:plugin name="org.apache.cordova.media" /> 
 <gap:plugin name="com.badrit.backgroundjs" />
   <icon src="icon.png" />
 
