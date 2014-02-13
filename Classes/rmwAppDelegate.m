@@ -56,54 +56,12 @@ Copyright (C) 2009 Apple Inc. All Rights Reserved.
 - (void) applicationDidFinishLaunching: (UIApplication *) application {
 
 
-NSError *audioError = nil;
-AVAudioSession *session = [AVAudioSession sharedInstance];
-if(![session setCategory:AVAudioSessionCategoryPlayback
-             withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&audioError]) {
-    NSLog(@"[AppDelegate] Failed to setup audio session: %@", audioError);
-}
-[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-
-
-[session setActive:YES error:&audioError];
-
-
     // Override point for customization after application launch.
-application.idleTimerDisabled = YES;
+[UIApplication sharedApplication].idleTimerDisabled = YES;
 	[window addSubview: [mainViewController view]];
     [window makeKeyAndVisible];
 }
 
-- (void)remoteControlReceivedWithEvent:(UIEvent *)event
-{
-    if(event.type == UIEventTypeRemoteControl)
-    {
-        switch(event.subtype)
-        {
-            case UIEventSubtypeRemoteControlPause:
-            case UIEventSubtypeRemoteControlStop:
-                break;
-            case UIEventSubtypeRemoteControlPlay:
-                break;
-            default:
-                break;
-        }
-    }
-}
-
-- (void)playData:(NSData *)data
-{
-    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:data error:nil];
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    OSStatus propertySetError = 0;
-    UInt32 allowMixing = true;
-    propertySetError = AudioSessionSetProperty (kAudioSessionProperty_OtherMixableAudioShouldDuck, sizeof(allowMixing),&allowMixing);
-    [[AVAudioSession sharedInstance] setActive: YES error: nil];
-    [audioPlayer play];
-    self.player=audioPlayer;
-    self.player.delegate=self;
-}
 - (void)dealloc {
 
     [window release];

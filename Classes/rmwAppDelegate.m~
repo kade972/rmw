@@ -55,14 +55,12 @@ Copyright (C) 2009 Apple Inc. All Rights Reserved.
 
 - (void) applicationDidFinishLaunching: (UIApplication *) application {
 
-[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];     
 
     // Override point for customization after application launch.
 application.idleTimerDisabled = YES;
 	[window addSubview: [mainViewController view]];
     [window makeKeyAndVisible];
 }
-
 
 - (void)dealloc {
 
