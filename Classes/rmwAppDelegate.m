@@ -55,7 +55,7 @@ Copyright (C) 2009 Apple Inc. All Rights Reserved.
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-	application.idleTimerDisabled = YES;
+[UIApplication sharedApplication].idleTimerDisabled = YES;
 }
 
 @end
