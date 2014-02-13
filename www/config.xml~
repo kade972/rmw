@@ -21,13 +21,21 @@
                  <param name="ios-package" value="LowLatencyAudio" />
              </feature>
 
+<feature name="AudioStream">
+                 <param name="ios-package" value="AudioStream" />
+             </feature>
+
 
          <header-file src="src/ios/LowLatencyAudio.h" />
          <source-file src="src/ios/LowLatencyAudio.m" />
          <header-file src="src/ios/LowLatencyAudioAsset.h" />
          <source-file src="src/ios/LowLatencyAudioAsset.m" />
-<gap:plugin name="org.apache.cordova.media" /> 
-<gap:plugin name="com.badrit.backgroundjs" />
+
+
+         <header-file src="Plugins/AudioStream.h" />
+         <source-file src="Plugins/AudioStream.m" />
+         <header-file src="Plugins/AudioStreamer.h" />
+         <source-file src="Plugins/AudioStreamer.m" />
 
 
 
