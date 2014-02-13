@@ -28,6 +28,8 @@ NSError *sessionError = nil;
 UInt32 doChangeDefaultRoute = 1;
 AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
 
+
+
     // Override point for customization after application launch.
 application.idleTimerDisabled = YES;
     return YES;

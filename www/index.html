@@ -12,8 +12,6 @@
 <script type="text/javascript" src="phonegap.js"></script>
 
 <script type="text/javascript" src="LowLatencyAudio.js"></script>
-<script type="text/javascript" src="AudioStream.js"></script>
-
 
 
 <script type="text/javascript" charset="utf-8">
@@ -25,7 +23,7 @@
     // it will call the event `deviceready`.
     // 
    var lla;
-var audioStreamer;
+
 			
 			function onBodyLoad() {		
 				document.addEventListener("deviceready", onDeviceReady, false);
@@ -34,8 +32,6 @@ var audioStreamer;
     //
     function onDeviceReady() {
         // Now safe to use the PhoneGap API
-	audioStreamer = window.plugins.audioStream;
-	audioStreamer.play("http://173.255.137.32:7050/;stream.mp3");
 if( window.plugins && window.plugins.LowLatencyAudio ) {
 					
 					lla = window.plugins.LowLatencyAudio;	

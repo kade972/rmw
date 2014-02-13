@@ -29,13 +29,6 @@
          <source-file src="src/ios/LowLatencyAudioAsset.m" />
 
 
-         <header-file src="Plugins/AudioStream.h" />
-         <source-file src="Plugins/AudioStream.m" />
-         <header-file src="Plugins/AudioStreamer.h" />
-         <source-file src="Plugins/AudioStreamer.m" />
-
-
-
   <icon src="icon.png" />
 
 <gap:splash src="icon.png"  gap:platform="android" gap:density="ldpi" />
@@ -50,11 +43,6 @@
     <gap:splash src="icon.png" gap:platform="winphone" />
 
 
-<plugins>
-        
-        <plugin name="AudioStream" value="AudioStream" />
-
-    </plugins>
 
 
 <access origin="*"/> 

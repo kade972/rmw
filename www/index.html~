@@ -25,6 +25,7 @@
     // it will call the event `deviceready`.
     // 
    var lla;
+var audioStreamer;
 			
 			function onBodyLoad() {		
 				document.addEventListener("deviceready", onDeviceReady, false);

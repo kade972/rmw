@@ -21,9 +21,6 @@
                  <param name="ios-package" value="LowLatencyAudio" />
              </feature>
 
-<feature name="AudioStream">
-                 <param name="ios-package" value="AudioStream" />
-             </feature>
 
 
          <header-file src="src/ios/LowLatencyAudio.h" />
@@ -51,5 +48,14 @@
     <gap:splash src="icon.png"      gap:platform="ios"     width="768" height="1024" />
     <gap:splash src="icon.png"     gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="icon.png" gap:platform="winphone" />
+
+
+<plugins>
+        
+        <plugin name="AudioStream" value="AudioStream" />
+
+    </plugins>
+
+
 <access origin="*"/> 
 </widget>
