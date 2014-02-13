@@ -27,7 +27,7 @@
     <gap:splash src="icon.png"  gap:platform="android" gap:density="mdpi" />
     <gap:splash src="icon.png"  gap:platform="android" gap:density="hdpi" />
     <gap:splash src="icon.png" gap:platform="android" gap:density="xhdpi" />
-    <gap:splash src="icon.png"         gap:platform="blackberry" />
+    <gap:splash src="iconb.png"         gap:platform="blackberry" />
     <gap:splash src="icon.png"    gap:platform="ios"     width="320" height="480" />
     <gap:splash src="icon.png" gap:platform="ios"     width="640" height="960" />
     <gap:splash src="icon.png"      gap:platform="ios"     width="768" height="1024" />
