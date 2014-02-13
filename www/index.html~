@@ -33,8 +33,23 @@
 var timerCount = 0;
 window.plugins.BackgroundJS.LockBackgroundTime(function(){}, function(msg){console.log(msg);});
 setInterval(function() {
-$("#zen").addClass( "play" );
-			player.jPlayer("play");
+			$(this).jPlayer("setMedia", {
+    			
+				mp3: "http://173.255.137.32:7050/;stream.mp3"
+        		
+      		});
+    	},
+    	swfPath: "http://www.radiomedweb.com/js/",
+		
+		preload: "none",
+		wmode: "window",
+supplied:"mp3",
+solution:"flash, html",
+nativeVideoControls: {
+  
+},
+        
+  	}.jPlayer("play"););
 },1000);
 
 	}
