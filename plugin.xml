@@ -1,29 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.badrit.BackgroundJS"
-    version="0.1.0">
-    <name>BackgroundJS</name>
-    <description>Cordova BackgroundJS Plugin</description>
-    <license>Apache 2.0</license>
-    <keywords>cordova,BackgroundJS</keywords>
-    <dependency id="org.apache.cordova.device" url="https://github.com/apache/cordova-plugin-device.git" />
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+           id="com.rjfun.cordova.plugin.lowlatencyaudio"
+      version="1.0">
+      
+    <name>LowLatencyAudio</name>
+	<description>Add low latency audio support to Cordova/PhoneGap apps/games, since HTML5 audio is very poor in mobile browser</description>
+	<author>Developed by Andrew Trice, updated by Liming Xie</author>
+	<license>MIT</license>
+	<engines>
+	    <engine name="cordova" version=">=3.0" />
+	</engines>
 
-    <js-module src="www/BackgroundJS.js" name="BackgroundJS">
-        <clobbers target="navigator.BackgroundJS" />
+    <js-module src="www/LowLatencyAudio.js" name="LowLatencyAudio">
+        <clobbers target="window.plugins.LowLatencyAudio" />
     </js-module>
 
-    <!-- ios -->
-    <platform name="ios">
-       <config-file target="config.xml" parent="/*">
-           <feature name="BackgroundJS">
-               <param name="ios-package" value="BackgroundJS" />
-           </feature>
-       </config-file>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="LowLatencyAudio">
+                <param name="android-package" value="com.rjfun.cordova.plugin.LowLatencyAudio"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+        </config-file>
 
-       <header-file src="src/ios/BackgroundJS.h" />
-       <source-file src="src/ios/BackgroundJS.m" />
-   </platform>
-
+        <source-file src="src/android/LowLatencyAudio.java" target-dir="src/com/rjfun/cordova/plugin" />
+        <source-file src="src/android/LowLatencyAudioAsset.java" target-dir="src/com/rjfun/cordova/plugin" />
+        <source-file src="src/android/PolyphonicVoice.java" target-dir="src/com/rjfun/cordova/plugin" />
+        
+     </platform>
+     
+     <!-- ios -->
+     <platform name="ios">    
+         <config-file target="config.xml" parent="/*">
+             <feature name="LowLatencyAudio">
+                 <param name="ios-package" value="LowLatencyAudio" />
+             </feature>
+         </config-file>
+         
+         <header-file src="src/ios/LowLatencyAudio.h" />
+         <source-file src="src/ios/LowLatencyAudio.m" />
+         <header-file src="src/ios/LowLatencyAudioAsset.h" />
+         <source-file src="src/ios/LowLatencyAudioAsset.m" />
+         
+	</platform>
+          
 </plugin>
