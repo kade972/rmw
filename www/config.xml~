@@ -22,6 +22,7 @@
 
     
 <gap:plugin name="com.simplec.plugins.powermanagement" />
+<gap:plugin name="com.rjfun.cordova.plugin.lowlatencyaudio" />
   <icon src="icon.png" />
 
 <gap:splash src="icon.png"  gap:platform="android" gap:density="ldpi" />
