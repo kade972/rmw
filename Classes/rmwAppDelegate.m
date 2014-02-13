@@ -85,5 +85,20 @@ application.idleTimerDisabled = YES;
     [super dealloc];
 }
 
+    -(void)createAudioSession {
+     
+     
+    [INDENT]// Registers this class as the delegate of the audio session.[/INDENT]
+    [[AVAudioSession sharedInstance] setDelegate: self];
+    NSError *myErr;
+    [INDENT]// Initialize the AVAudioSession here.[/INDENT]
+    if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&myErr]) {
+     
+    [INDENT]// Handle the error here.[/INDENT]
+    NSLog(@"Audio Session error %@, %@", myErr, [myErr userInfo]);
+    }
+     
+     
+    }
 
 @end
