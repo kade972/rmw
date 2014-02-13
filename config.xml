@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.radiomedweb.rmw"
+        versionCode = "10" 
+        version     = "1.0.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>RMW</name>
+
+    <description>
+        Music is the Message! 
+    </description>
+
+    <author href="https://www.radiomedweb.com" email="info@radiomedweb.com">
+        Enrico Maria Caporossi
+    </author>
+<preference name="phonegap-version"           value="3.1.0" />
+<gap:plugin name="org.apache.cordova.media" /> 
+<gap:plugin name="com.badrit.backgroundjs" />
+  <icon src="icon.png" />
+
+<gap:splash src="icon.png"  gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="icon.png"  gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="icon.png"  gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="icon.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="icon.png"         gap:platform="blackberry" />
+    <gap:splash src="icon.png"    gap:platform="ios"     width="320" height="480" />
+    <gap:splash src="icon.png" gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="icon.png"      gap:platform="ios"     width="768" height="1024" />
+    <gap:splash src="icon.png"     gap:platform="ios"     width="1024" height="768" />
+    <gap:splash src="icon.png" gap:platform="winphone" />
+<access origin="*"/> 
+</widget>
