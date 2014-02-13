@@ -48,7 +48,6 @@ Copyright (C) 2009 Apple Inc. All Rights Reserved.
 
 #import "AddMusicAppDelegate.h"
 #import "MainViewController.h"
-#import <AVFoundation/AVFoundation.h>
 @implementation AddMusicAppDelegate
 
 @synthesize window, mainViewController;

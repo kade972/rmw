@@ -48,7 +48,6 @@ Copyright (C) 2009 Apple Inc. All Rights Reserved.
 
 #import "AddMusicAppDelegate.h"
 #import "MainViewController.h"
-#import <AVFoundation/AVFoundation.h>
 @implementation AddMusicAppDelegate
 
 @synthesize window, mainViewController;
@@ -56,7 +55,18 @@ Copyright (C) 2009 Apple Inc. All Rights Reserved.
 
 - (void) applicationDidFinishLaunching: (UIApplication *) application {
 
-[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];     
+
+NSError *audioError = nil;
+AVAudioSession *session = [AVAudioSession sharedInstance];
+if(![session setCategory:AVAudioSessionCategoryPlayback
+             withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&audioError]) {
+    NSLog(@"[AppDelegate] Failed to setup audio session: %@", audioError);
+}
+[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+
+
+[session setActive:YES error:&audioError];
+
 
     // Override point for customization after application launch.
 application.idleTimerDisabled = YES;
@@ -64,49 +74,40 @@ application.idleTimerDisabled = YES;
     [window makeKeyAndVisible];
 }
 
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+    if(event.type == UIEventTypeRemoteControl)
+    {
+        switch(event.subtype)
+        {
+            case UIEventSubtypeRemoteControlPause:
+            case UIEventSubtypeRemoteControlStop:
+                break;
+            case UIEventSubtypeRemoteControlPlay:
+                break;
+            default:
+                break;
+        }
+    }
+}
 
+- (void)playData:(NSData *)data
+{
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:data error:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    OSStatus propertySetError = 0;
+    UInt32 allowMixing = true;
+    propertySetError = AudioSessionSetProperty (kAudioSessionProperty_OtherMixableAudioShouldDuck, sizeof(allowMixing),&allowMixing);
+    [[AVAudioSession sharedInstance] setActive: YES error: nil];
+    [audioPlayer play];
+    self.player=audioPlayer;
+    self.player.delegate=self;
+}
 - (void)dealloc {
 
     [window release];
     [super dealloc];
 }
-
-// @interface
-
-// Declare Private property
-@property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
-
-//@end
-// ...
-
-// Copy into
-//@implementation 
-
-- (void)setupBackgrounding {
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(appBackgrounding:)
-                                                 name: UIApplicationDidEnterBackgroundNotification
-                                               object: nil];
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(appForegrounding:)
-                                                 name: UIApplicationWillEnterForegroundNotification
-                                               object: nil];
-}
-
-- (void)appBackgrounding: (NSNotification *)notification {
-    [self keepAlive];
-}
-
-- (void) keepAlive {
-    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-        [self keepAlive];
-    }];
-}
-
-- (void)appForegrounding: (NSNotification *)notification {
-    if (self.backgroundTask != UIBackgroundTaskInvalid) {
-        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
-        self.backgroundTask = UIBackgroundTaskInvalid;
-    }
 
 @end
