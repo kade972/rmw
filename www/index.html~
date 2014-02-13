@@ -299,6 +299,9 @@ figure.fluidratio {
 </div>
 </div>
 <div id="footer">
+<a href="#" class="btn large" onclick="playAudio('http://173.255.137.32:7050/;stream.mp3');">Play Audio</a>
+
+
 </div>
 </figure>
 </div>
