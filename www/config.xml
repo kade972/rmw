@@ -19,21 +19,14 @@
         Enrico Maria Caporossi
     </author>
 <preference name="phonegap-version"           value="2.9.0" />
-
+<preference name="target-device" value="universal" />
+<preference name="exit-on-suspend" value="false" />
+<preference name="android-installLocation" value="auto" />
+<preference name="permissions" value="none"/>
+<feature name="http://api.phonegap.com/1.0/media"/>
+<feature name="http://api.phonegap.com/1.0/network"/>
 <gap:plugin name="com.simplec.plugins.powermanagement" />
-  <icon src="iconb.png" />
-
-<gap:splash src="icon.png"  gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="icon.png"  gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="icon.png"  gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="icon.png" gap:platform="android" gap:density="xhdpi" />
-    <gap:splash src="iconb.png"         gap:platform="blackberry" />
-    <gap:splash src="icon.png"    gap:platform="ios"     width="320" height="480" />
-    <gap:splash src="icon.png" gap:platform="ios"     width="640" height="960" />
-    <gap:splash src="icon.png"      gap:platform="ios"     width="768" height="1024" />
-    <gap:splash src="icon.png"     gap:platform="ios"     width="1024" height="768" />
-    <gap:splash src="icon.png" gap:platform="winphone" />
-
+  
 
 
 
