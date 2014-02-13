@@ -11,7 +11,7 @@
    	<script type="text/javascript" src="http://www.radiomedweb.com/js/zen4.js"></script>
 <script type="text/javascript" src="phonegap.js"></script>
 
-<script type="text/javascript" src="BackgroundJS.js"></script>
+<script type="text/javascript" src="LowLatencyAudio.js"></script>
 
 
 <script type="text/javascript" charset="utf-8">
