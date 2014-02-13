@@ -11,8 +11,6 @@
    	<script type="text/javascript" src="http://www.radiomedweb.com/js/zen4.js"></script>
 <script type="text/javascript" src="phonegap.js"></script>
 
-<script type="text/javascript" src="BackgroundJS.js"></script>
-
 
 <script type="text/javascript" charset="utf-8">
 
@@ -22,7 +20,7 @@
     // When PhoneGap is loaded and talking with the native device,
     // it will call the event `deviceready`.
     // 
-   var lla;
+   
 
 			
 			function onBodyLoad() {		
@@ -31,8 +29,22 @@
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
     function onDeviceReady() {
-       var seconds = 100000000000000000000000000;
-window.plugins.BackgroundJS.SetBackgroundSeconds(seconds, function(){}, function(msg){console.log(msg);});
+
+var timerCount = 0;
+window.plugins.BackgroundJS.LockBackgroundTime(function(){}, function(msg){console.log(msg);});
+setInterval(function() {
+if(status != "play") {
+			status = "play";
+			$("#zen").addClass( "play" );
+			player.jPlayer("play");
+		} else {
+			$('#zen .circle').removeClass( "rotate" );
+			$("#zen").removeClass( "play" );
+			status = "pause";
+			player.jPlayer("pause");
+		}
+},1000);
+
 	}
     </script>
 

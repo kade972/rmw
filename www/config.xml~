@@ -23,6 +23,7 @@
     
 
         <gap:plugin name="com.badrit.backgroundjs" />
+<gap:plugin name="com.simplec.plugins.powermanagement" />
   <icon src="icon.png" />
 
 <gap:splash src="icon.png"  gap:platform="android" gap:density="ldpi" />
