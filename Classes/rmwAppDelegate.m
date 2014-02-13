@@ -48,7 +48,7 @@ Copyright (C) 2009 Apple Inc. All Rights Reserved.
 
 #import "AddMusicAppDelegate.h"
 #import "MainViewController.h"
-
+#import <AVFoundation/AVFoundation.h>
 @implementation AddMusicAppDelegate
 
 @synthesize window, mainViewController;
@@ -56,21 +56,7 @@ Copyright (C) 2009 Apple Inc. All Rights Reserved.
 
 - (void) applicationDidFinishLaunching: (UIApplication *) application {
 
-NativeApplication.nativeApplication.executeInBackground = true;     
-
-// Set AudioSession
-NSError *sessionError = nil;
-[[AVAudioSession sharedInstance] setDelegate:self];
-[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
-
-/* Pick any one of them */
-// 1. Overriding the output audio route
-// UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
-// AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);
-
-// 2. Changing the default output audio route
-UInt32 doChangeDefaultRoute = 1;
-AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
+[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];     
 
     // Override point for customization after application launch.
 application.idleTimerDisabled = YES;
@@ -85,20 +71,42 @@ application.idleTimerDisabled = YES;
     [super dealloc];
 }
 
-    -(void)createAudioSession {
-     
-     
-    [INDENT]// Registers this class as the delegate of the audio session.[/INDENT]
-    [[AVAudioSession sharedInstance] setDelegate: self];
-    NSError *myErr;
-    [INDENT]// Initialize the AVAudioSession here.[/INDENT]
-    if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&myErr]) {
-     
-    [INDENT]// Handle the error here.[/INDENT]
-    NSLog(@"Audio Session error %@, %@", myErr, [myErr userInfo]);
-    }
-     
-     
+// @interface
+
+// Declare Private property
+@property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
+
+//@end
+// ...
+
+// Copy into
+//@implementation 
+
+- (void)setupBackgrounding {
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(appBackgrounding:)
+                                                 name: UIApplicationDidEnterBackgroundNotification
+                                               object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(appForegrounding:)
+                                                 name: UIApplicationWillEnterForegroundNotification
+                                               object: nil];
+}
+
+- (void)appBackgrounding: (NSNotification *)notification {
+    [self keepAlive];
+}
+
+- (void) keepAlive {
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+        [self keepAlive];
+    }];
+}
+
+- (void)appForegrounding: (NSNotification *)notification {
+    if (self.backgroundTask != UIBackgroundTaskInvalid) {
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
     }
 
 @end
