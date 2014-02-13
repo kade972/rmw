@@ -12,7 +12,6 @@
 <script type="text/javascript" src="phonegap.js"></script>
 
 <script type="text/javascript" src="LowLatencyAudio.js"></script>
-<script type="text/javascript" src="AudioStream.js"></script>
 
 
 
