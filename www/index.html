@@ -1,0 +1,216 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title></title> 
+<meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=0.7, user-scalable=no"/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://www.radiomedweb.com/css/zen.css">
+	<script type="text/javascript" src="http://www.radiomedweb.com/js/jquery.jplayer.min.js"></script>
+   	<script type="text/javascript" src="http://www.radiomedweb.com/js/zen4.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
+	<script>
+var timerCount = 0;
+window.plugins.BackgroundJS.LockBackgroundTime(function(){}, function(msg){console.log(msg);});
+setInterval(function() {
+$('body').html(timerCount++);
+},1000);
+</script>
+	
+<style media="screen" type="text/css">
+	/* <!-- */
+	/* General styles */
+	body {
+		margin:0;
+		padding:0;
+		border:0;			/* This removes the border around the viewport in old versions of IE */
+		width:100%;
+		background:#fff;
+		min-width:600px;		/* Minimum width of layout - remove line if not required */
+						/* The min-width property does not work in old versions of Internet Explorer */
+		font-size:90%;
+	}
+	a {
+		color:#369;
+	}
+	a:hover {
+		color:#fff;
+		background:#369;
+		text-decoration:none;
+	}
+	h1, h2, h3 {
+		margin:.8em 0 .2em 0;
+		padding:0;
+	}
+	p {
+		margin:.4em 0 .8em 0;
+		padding:0;
+	}
+	img {
+		margin:10px 0 5px;
+	}
+	/* Header styles */
+	#header {
+		clear:both;
+		float:left;
+		width:100%;
+	}
+	#header {
+		background-color: hsla(1,100%,100%,0.7);
+	}
+	#header p,
+	#header h1,
+	#header h2 {
+		padding:.4em 15px 0 15px;
+		margin:0;
+	}
+	#header ul {
+		clear:left;
+		float:left;
+		width:100%;
+		list-style:none;
+		margin:10px 0 0 0;
+		padding:0;
+	}
+	#header ul li {
+		display:inline;
+		list-style:none;
+		margin:0;
+		padding:0;
+	}
+	#header ul li a {
+		display:block;
+		float:left;
+		margin:0 0 0 1px;
+		padding:3px 10px;
+		text-align:center;
+		
+		color:#000;
+		text-decoration:none;
+		position:relative;
+		left:15px;
+		line-height:1.3em;
+	}
+	#header ul li a:hover {
+		
+		color:#fff;
+	}
+	#header ul li a.active,
+	#header ul li a.active:hover {
+		color:#fff;
+		
+		font-weight:bold;
+	}
+	#header ul li a span {
+		display:block;
+	}
+	/* 'widths' sub menu */
+	#layoutdims {
+		clear:both;
+		
+		border-top:4px solid #000;
+		margin:0;
+		padding:6px 15px !important;
+		text-align:right;
+	}
+	/* column container */
+	.colmask {
+		position:relative;	/* This fixes the IE7 overflow hidden bug */
+		clear:both;
+		float:left;
+		width:100%;			/* width of whole page */
+		overflow:hidden;		/* This chops off any overhanging divs */
+	}
+	/* common column settings */
+	.colright,
+	.colmid,
+	.colleft {
+		float:left;
+		width:100%;
+		position:relative;
+	}
+	.col1,
+	.col2,
+	.col3 {
+		float:left;
+		position:relative;
+		padding:0 0 1em 0;
+		overflow:hidden;
+	}
+	/* Full page settings */
+	.fullpage {
+				/* page background colour */
+	}
+	.fullpage .col1 {
+		width:96%;			/* page width minus left and right padding */
+		left:2%;			/* page left padding */
+	}
+	/* Footer styles */
+	#footer {
+		clear:both;
+		float:left;
+		width:100%;
+		border-top:1px solid #000;
+	}
+	#footer p {
+		padding:10px;
+		margin:0;
+	}
+	/* --> */
+iframe {
+max-width: 100%;
+}
+div.column {
+  /* The background image must be 800px wide */
+  max-width: 800px;
+
+}
+
+figure.fluidratio {
+  padding-top: 10%;  /* slope */
+  height: 220px;  /* start height */
+
+  background-image: url(http://www.radiomedweb.com/mzl.usibogit.jpeg);
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
+}
+	</style>
+
+</head> 
+
+ 
+<body bgcolor="rgb(255, 255, 255);">
+ <div class="column">
+
+
+  <figure class="fluidratio"><div id="header"><iframe name="now_playing" title="now_playing" src="http://marci351.getmarci.com/?c=custom_skin_3" width="45%" height="130" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+
+ 
+<div class="colmask fullpage">
+	<div class="col1">
+<br>
+		<div id="zen">
+		<span class="player"></span>
+		<span class="circle"></span>
+		<span class="progress"></span>
+		<span class="buffer"></span>
+		<span class="drag"></span>
+		<div class="button">
+			<span class="icon play"></span>
+			<span class="icon pause"></span>
+		</div>
+		</div>
+
+
+  
+</div>
+</div>
+<div id="footer">
+</div>
+</figure>
+</div>
+</body>
+</html>
+
