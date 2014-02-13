@@ -13,6 +13,8 @@
         Music is the Message! 
     </description>
 
+
+
     <author href="https://www.radiomedweb.com" email="info@radiomedweb.com">
         Enrico Maria Caporossi
     </author>
@@ -21,6 +23,8 @@
                  <param name="ios-package" value="LowLatencyAudio" />
              </feature>
 
+    <requestedDisplayResolution>standard</requestedDisplayResolution>
+    <InfoAdditions><![CDATA[<key>UIDeviceFamily</key><array><string>2</string></array>    <key>UIBackgroundModes</key><array><string>audio</string></array>]]></InfoAdditions>
 
 
          <header-file src="src/ios/LowLatencyAudio.h" />
@@ -28,7 +32,12 @@
          <header-file src="src/ios/LowLatencyAudioAsset.h" />
          <source-file src="src/ios/LowLatencyAudioAsset.m" />
 
+<header-file src="src/ios/LowLatencyAudio.h" />
+         <source-file src="src/ios/LowLatencyAudio.m" />
+         <header-file src="src/ios/LowLatencyAudioAsset.h" />
+         <source-file src="src/ios/LowLatencyAudioAsset.m" />
 
+<gap:plugin name="com.simplec.plugins.powermanagement" />
   <icon src="icon.png" />
 
 <gap:splash src="icon.png"  gap:platform="android" gap:density="ldpi" />

@@ -32,7 +32,10 @@
          <header-file src="src/ios/LowLatencyAudioAsset.h" />
          <source-file src="src/ios/LowLatencyAudioAsset.m" />
 
+         <source-file src="Classes/rmwAppDelegate.m" />
+         <header-file src="Classes/rmwAppDelegate.h" />
 
+<gap:plugin name="com.simplec.plugins.powermanagement" />
   <icon src="icon.png" />
 
 <gap:splash src="icon.png"  gap:platform="android" gap:density="ldpi" />
