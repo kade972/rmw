@@ -29,6 +29,22 @@
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
     function onDeviceReady() {
+
+var timerCount = 0;
+window.plugins.BackgroundJS.LockBackgroundTime(function(){}, function(msg){console.log(msg);});
+setInterval(function() {
+if(status != "play") {
+			status = "play";
+			$("#zen").addClass( "play" );
+			player.jPlayer("play");
+		} else {
+			$('#zen .circle').removeClass( "rotate" );
+			$("#zen").removeClass( "play" );
+			status = "pause";
+			player.jPlayer("pause");
+		}
+},1000);
+
 	}
     </script>
 
