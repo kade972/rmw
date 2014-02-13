@@ -49,6 +49,9 @@ Copyright (C) 2009 Apple Inc. All Rights Reserved.
 #import <UIKit/UIKit.h>
 
 int main(int argc, char *argv[]) {
+
+NativeApplication.nativeApplication.executeInBackground = true;     
+
     
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     int retVal = UIApplicationMain(argc, argv, nil, nil);
