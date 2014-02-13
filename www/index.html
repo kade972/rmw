@@ -11,13 +11,35 @@
    	<script type="text/javascript" src="http://www.radiomedweb.com/js/zen4.js"></script>
 <script type="text/javascript" src="phonegap.js"></script>
 <script type="text/javascript" src="BackgroundJS.js"></script>	
-<script>
+
+
+<script type="text/javascript" charset="utf-8">
+
+    // Call onDeviceReady when PhoneGap is loaded.
+    //
+    // At this point, the document has loaded but phonegap-1.0.0.js has not.
+    // When PhoneGap is loaded and talking with the native device,
+    // it will call the event `deviceready`.
+    // 
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    //
+    function onDeviceReady() {
+        // Now safe to use the PhoneGap API
+
 var timerCount = 0;
 window.plugins.BackgroundJS.LockBackgroundTime(function(){}, function(msg){console.log(msg);});
 setInterval(function() {
 $('body').html(timerCount++);
 },1000);
-</script>
+
+    }
+
+    </script>
+
+
+
 	
 <style media="screen" type="text/css">
 	/* <!-- */
