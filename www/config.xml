@@ -21,7 +21,7 @@
 <preference name="phonegap-version"           value="2.9.0" />
 
 <gap:plugin name="com.simplec.plugins.powermanagement" />
-  <icon src="icon.png" />
+  <icon src="iconb.png" />
 
 <gap:splash src="icon.png"  gap:platform="android" gap:density="ldpi" />
     <gap:splash src="icon.png"  gap:platform="android" gap:density="mdpi" />
