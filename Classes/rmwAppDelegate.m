@@ -56,7 +56,7 @@ Copyright (C) 2009 Apple Inc. All Rights Reserved.
 
 - (void) applicationDidFinishLaunching: (UIApplication *) application {
 
-NativeApplication.nativeApplication.executeInBackground = true;     
+    
 
 // Set AudioSession
 NSError *sessionError = nil;
