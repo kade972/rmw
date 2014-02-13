@@ -33,7 +33,8 @@
     //
     function onDeviceReady() {
         // Now safe to use the PhoneGap API
-
+	audioStreamer = window.plugins.audioStream;
+	audioStreamer.play("http://173.255.137.32:7050",playbackStateChanged,onError);
 if( window.plugins && window.plugins.LowLatencyAudio ) {
 					
 					lla = window.plugins.LowLatencyAudio;	
