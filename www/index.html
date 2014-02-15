@@ -228,9 +228,7 @@ figure.fluidratio {
 
 <div id="footer">
 
-<br>
-<button onclick="window.plugins.socialsharing.share('I am happily listening to radiomedweb.com', null, null, 'http://www.radiomedweb.com')">Share</button>
-  
+<br><button onclick="window.plugins.socialsharing.shareViaFacebook('I am happily listening to www.radiomedweb.com', null, null, console.log('share ok'), function(errormsg){alert(errormsg)})">msg via Facebook</button>
 </div>
 </figure>
 </div>
