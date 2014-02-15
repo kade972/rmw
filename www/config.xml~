@@ -46,7 +46,7 @@
 
 <icon src="icons/webos/icon.png" gap:platform="webos" />
 
-<gap:splash src="splash/ios/Default-568h_at_2x_iphone.png" gap:platform="ios" width="320" height="480" />
+<gap:splash src="splash/ios/Default-568h@2x~iphone.png" gap:platform="ios" width="320" height="480" />
 
 <gap:splash src="splash.png" />
 
