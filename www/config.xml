@@ -42,6 +42,9 @@
 <icon src="icons/hdpi.png" gap:platform="android" gap:density="hdpi" />
 <icon src="icons/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
 
+<icon src="icons/icon.png" gap:platform="blackberry" />
+<icon src="icons/icon_hover.png" gap:platform="blackberry" gap:state="hover"/>
+
 
 <icon src="icons/icon.png" gap:platform="winphone" />
 
