@@ -3,36 +3,13 @@
 	<head> 
 	
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title></title> 
-<meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=0.7, user-scalable=no"/>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="http://www.radiomedweb.com/css/zen.css">
-	<script type="text/javascript" src="http://www.radiomedweb.com/js/jquery.jplayer.min.js"></script>
-   	<script type="text/javascript" src="http://www.radiomedweb.com/js/zen4.js"></script>
-<script type="text/javascript" src="phonegap.js"></script>
-<script src="js/plugins/SocialSharing.js"></script>
-<script type="text/javascript" charset="utf-8">
+	<title>radiomedweb</title> 
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
-    // Call onDeviceReady when PhoneGap is loaded.
-    //
-    // At this point, the document has loaded but phonegap-1.0.0.js has not.
-    // When PhoneGap is loaded and talking with the native device,
-    // it will call the event `deviceready`.
-    // 
-   
-
-			
-			function onBodyLoad() {		
-				document.addEventListener("deviceready", onDeviceReady, false);
-			}
-    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-    //
-    function onDeviceReady() {
-window.plugins.powerManagement.acquire();
-
-	}
-    </script>
-
+ <link rel="stylesheet" href="css/default.css">
 
 
 	
@@ -196,17 +173,54 @@ figure.fluidratio {
 }
 	</style>
 
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="http://www.radiomedweb.com/css/zen.css">
+	<script type="text/javascript" src="http://www.radiomedweb.com/js/jquery.jplayer.min.js"></script>
+   	<script type="text/javascript" src="http://www.radiomedweb.com/js/zen4.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
+<script src="js/plugins/SocialSharing.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+    // Call onDeviceReady when PhoneGap is loaded.
+    //
+    // At this point, the document has loaded but phonegap-1.0.0.js has not.
+    // When PhoneGap is loaded and talking with the native device,
+    // it will call the event `deviceready`.
+    // 
+   
+
+			
+			function onBodyLoad() {		
+				document.addEventListener("deviceready", onDeviceReady, false);
+			}
+    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    //
+    function onDeviceReady() {
+window.plugins.powerManagement.acquire();
+
+	}
+    </script>
+
+
+
 </head> 
 
  
 <body bgcolor="rgb(255, 255, 255);" onload="onBodyLoad();">
- <div class="column">
+
+ <script src="js/zepto.js"></script>
+<script src="js/app.js"></script>
+<script>
+App.load('home');
+</script>
+ <div class="column app-page" data-page="home">
 
 
   <figure class="fluidratio"><div id="header"><iframe name="now_playing" title="now_playing" src="http://marci351.getmarci.com/?c=custom_skin_3" width="45%" height="130" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
 
  
-<div class="colmask fullpage">
+<div class="colmask fullpage app-content">
 	<div class="col1">
 <br>
 		<div id="zen">
@@ -229,7 +243,7 @@ figure.fluidratio {
 <div id="footer">
 
 <br>
-  <button onclick="window.plugins.socialsharing.share('I am happily listening to radiomedweb.com', null, null, 'http://www.radiomedweb.com')">Share</button>
+  <button class="app-button" onclick="window.plugins.socialsharing.share('I am happily listening to radiomedweb.com', null, null, 'http://www.radiomedweb.com')">Share</button>
 </div>
 </figure>
 </div>
