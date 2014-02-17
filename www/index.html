@@ -49,7 +49,7 @@ user-scalable=no">
 	/* Header styles */
 	#header {
 		clear:both;
-		float:left;
+		float:right;
 		width:100%;
 		height:100px;
 	}
@@ -63,8 +63,8 @@ user-scalable=no">
 		margin:0;
 	}
 	#header ul {
-		clear:left;
-		float:left;
+		clear:right;
+		float:right;
 		width:100%;
 		list-style:none;
 		margin:10px 0 0 0;
@@ -78,7 +78,7 @@ user-scalable=no">
 	}
 	#header ul li a {
 		display:block;
-		float:left;
+		float:right;
 		margin:0 0 0 1px;
 		padding:3px 10px;
 		text-align:center;
@@ -86,7 +86,7 @@ user-scalable=no">
 		color:#000;
 		text-decoration:none;
 		position:relative;
-		left:15px;
+		right:15px;
 		line-height:1.3em;
 	}
 	#header ul li a:hover {
@@ -115,22 +115,22 @@ user-scalable=no">
 	.colmask {
 		position:relative;	/* This fixes the IE7 overflow hidden bug */
 		clear:both;
-		float:left;
-		width:100%;			/* width of whole page */
+		float:right;
+		width:75%;			/* width of whole page */
 		overflow:hidden;		/* This chops off any overhanging divs */
 	}
 	/* common column settings */
 	.colright,
 	.colmid,
-	.colleft {
-		float:left;
+	.colright {
+		float:right;
 		width:100%;
 		position:relative;
 	}
 	.col1,
 	.col2,
 	.col3 {
-		float:left;
+		float:right;
 		position:relative;
 		padding:0 0 1em 0;
 		overflow:hidden;
@@ -140,13 +140,13 @@ user-scalable=no">
 				/* page background colour */
 	}
 	.fullpage .col1 {
-		width:96%;			/* page width minus left and right padding */
-		left:2%;			/* page left padding */
+		width:96%;			/* page width minus right and right padding */
+		right:2%;			/* page right padding */
 	}
 	/* Footer styles */
 	#footer {
 		clear:both;
-		float:left;
+		float:right;
 		width:100%;
 		border-top:1px solid #000;
 	}
@@ -218,7 +218,7 @@ function reorient(e) {
 
  
 <body bgcolor="rgb(255, 255, 255);" onload="onBodyLoad();">
-<div>
+<div class="colmask">
 <center> 
  <script src="js/zepto.js"></script>
 <script src="js/app.js"></script>
@@ -233,7 +233,7 @@ App.load('home');
   <figure class="fluidratio"><div id="header"><iframe name="now_playing" title="now_playing" src="http://marci351.getmarci.com/?c=custom_skin_3" width="100%" height="130" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
 
 
-<div class="colmask fullpage">
+<div class="fullpage">
 <br>
 	<div class="app-content">
 <br>
