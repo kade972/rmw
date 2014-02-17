@@ -22,7 +22,7 @@ user-scalable=no">
 		border:0;			/* This removes the border around the viewport in old versions of IE */
 		width:100%;
 		background:#fff;
-		min-width:600px;		/* Minimum width of layout - remove line if not required */
+				/* Minimum width of layout - remove line if not required */
 						/* The min-width property does not work in old versions of Internet Explorer */
 		font-size:90%;
 	}
@@ -50,6 +50,7 @@ user-scalable=no">
 		clear:both;
 		float:left;
 		width:100%;
+		height:100px;
 	}
 	#header {
 		background-color: hsla(1,100%,100%,0.7);
@@ -164,7 +165,7 @@ div.column {
 
 figure.fluidratio {
   padding-top: 10%;  /* slope */
-  height: 220px;  /* start height */
+  height: 110px;  /* start height */
 
   background-image: url(http://www.radiomedweb.com/mzl.usibogit.jpeg);
   background-size: cover;
@@ -214,14 +215,15 @@ window.plugins.powerManagement.acquire();
 <script>
 App.load('home');
 </script>
- <div class="column app-page" data-page="home">
+ <div class="app-page" data-page="home">
 
 
-  <figure class="fluidratio"><div id="header"><iframe name="now_playing" title="now_playing" src="http://marci351.getmarci.com/?c=custom_skin_3" width="45%" height="130" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+  <figure class="fluidratio"><div id="header"><iframe name="now_playing" title="now_playing" src="http://marci351.getmarci.com/?c=custom_skin_3" width="100%" height="130" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
 
- 
-<div class="colmask fullpage app-content">
-	<div class="col1">
+<center> 
+<div class="colmask fullpage">
+<br>
+	<div class="app-content">
 <br>
 		<div id="zen">
 		<span class="player"></span>
@@ -238,6 +240,7 @@ App.load('home');
 
   
 </div>
+</center>
 </div>
 
 <div id="footer">
