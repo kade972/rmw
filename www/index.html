@@ -214,6 +214,10 @@ window.plugins.powerManagement.acquire();
 <script src="js/app.js"></script>
 <script>
 App.load('home');
+
+var rotate = 0 - window.orientation;
+setAttribute("transform:rotate("+rotate+"deg);-ms-transform:rotate("+rotate+"deg);-webkit-transform:rotate("+rotate+"deg)", "style");
+
 </script>
  <div class="app-page" data-page="home">
 
