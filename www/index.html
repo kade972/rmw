@@ -15,10 +15,7 @@ user-scalable=no">
 <style media="screen" type="text/css">
 	/* <!-- */
 	/* General styles */
-html {
-  width: 320px;
-  overflow-x: hidden;
-}
+
 	body {
 		margin:0;
 		padding:0;
@@ -218,6 +215,29 @@ window.plugins.powerManagement.acquire();
 <script src="js/app.js"></script>
 <script>
 App.load('home');
+
+
+$(document).ready(function () {
+     $(window)    
+          .bind('orientationchange', function(){
+               if (window.orientation % 180 == 0){
+                   $(document.body).css("-webkit-transform-origin", "")
+                       .css("-webkit-transform", "");               
+               } 
+               else {                   
+                   if ( window.orientation > 0) { //clockwise
+                     $(document.body).css("-webkit-transform-origin", "200px 190px")
+                       .css("-webkit-transform",  "rotate(-90deg)");  
+                   }
+                   else {
+                     $(document.body).css("-webkit-transform-origin", "280px 190px")
+                       .css("-webkit-transform",  "rotate(90deg)"); 
+                   }
+               }
+           })
+          .trigger('orientationchange'); 
+});
+
 </script>
  <div class="app-page" data-page="home">
 
