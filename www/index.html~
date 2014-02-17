@@ -15,7 +15,10 @@ user-scalable=no">
 <style media="screen" type="text/css">
 	/* <!-- */
 	/* General styles */
-
+html {
+  width: 520px;
+  overflow-x: hidden;
+}
 
 	body {
 		margin:0;
