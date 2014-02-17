@@ -201,6 +201,12 @@ body > div { -webkit-transition: all 1s ease-in-out; }
     //
     function onDeviceReady() {
 window.plugins.powerManagement.acquire();
+function reorient(e) {
+    var portrait = (window.orientation % 180 == 0);
+    $("body > div").css("-webkit-transform", !portrait ? "rotate(-90deg)" : "");
+  }
+  window.onorientationchange = reorient;
+  window.setTimeout(reorient, 0);
 
 	}
     </script>
@@ -218,15 +224,6 @@ window.plugins.powerManagement.acquire();
 <script>
 App.load('home');
 
-
-$(document).ready(function () {
-  function reorient(e) {
-    var portrait = (window.orientation % 180 == 0);
-    $("body > div").css("-webkit-transform", !portrait ? "rotate(-90deg)" : "");
-  }
-  window.onorientationchange = reorient;
-  window.setTimeout(reorient, 0);
-});
 
 </script>
  <div class="app-page" data-page="home">
