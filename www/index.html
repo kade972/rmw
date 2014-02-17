@@ -15,10 +15,7 @@ user-scalable=no">
 <style media="screen" type="text/css">
 	/* <!-- */
 	/* General styles */
-html {
-  width: 400px;
-  overflow-x: hidden;
-}
+
 
 	body {
 		margin:0;
@@ -176,7 +173,6 @@ figure.fluidratio {
   -moz-background-size: cover;  /* Firefox 3.6 */
   background-position: center;  /* Internet Explorer 7/8 */
 }
-body > div { -webkit-transition: all 1s ease-in-out; }
 
 	</style>
 
@@ -205,12 +201,6 @@ body > div { -webkit-transition: all 1s ease-in-out; }
     //
     function onDeviceReady() {
 window.plugins.powerManagement.acquire();
-function reorient(e) {
-    var portrait = (window.orientation % 180 == 0);
-    $("body > div").css("-webkit-transform", !portrait ? "rotate(-90deg)" : "");
-  }
-  window.onorientationchange = reorient;
-  window.setTimeout(reorient, 0);
 
 	}
     </script>
