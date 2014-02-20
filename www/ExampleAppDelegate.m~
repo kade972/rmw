@@ -1,0 +1,30 @@
+#import "ExampleAppDelegate.h"
+#import "ExampleAppViewController.h"
+
+@implementation ExampleAppDelegate
+
+@synthesize window;
+@synthesize viewController;
+
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+
+    application.idleTimerDisabled = YES;
+
+    // Override point for customization after app launch    
+    [window addSubview:viewController.view];
+    [window makeKeyAndVisible];
+}
+
+
+- (void)dealloc {
+    [viewController release];
+    [window release];
+    [super dealloc];
+}
+
+-(void)addNum:(int)num {
+    sum += num;
+}
+
+@end

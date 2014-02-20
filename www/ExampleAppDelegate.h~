@@ -1,0 +1,16 @@
+#import <UIKit/UIKit.h>
+
+@class ExampleAppViewController;
+
+@interface ExampleAppDelegate : NSObject <UIApplicationDelegate> {
+    UIWindow *window;
+    ExampleAppViewController *viewController;
+    int sum;
+}
+
+@property (nonatomic, retain) sum;
+@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet ExampleAppViewController *viewController;
+
+-(void) addNum:(int)num;
+@end
