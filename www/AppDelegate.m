@@ -7,18 +7,13 @@
 
     application.idleTimerDisabled = YES;
 
-Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
+[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
 
-if (playingInfoCenter) {
-    MPNowPlayingInfoCenter *center = [MPNowPlayingInfoCenter defaultCenter];
-    NSDictionary *songInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                             @"Some artist", MPMediaItemPropertyArtist,
-                             @"Some title", MPMediaItemPropertyTitle,
-                             @"Some Album", MPMediaItemPropertyAlbumTitle,
-                             nil];
-    center.nowPlayingInfo = songInfo;
-}
 
+NSError *setCategoryErr = nil;
+ NSError *activationErr  = nil;
+ [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error:&setCategoryErr];
+ [[AVAudioSession sharedInstance] setActive:YES error:&activationErr];
     // Override point for customization after app launch    
    }
 
