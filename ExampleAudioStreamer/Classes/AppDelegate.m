@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <CoreLocation/CoreLocation.h>
+
 #ifdef PHONEGAP_FRAMEWORK
 	#import <PhoneGap/PhoneGapViewController.h>
 #else
@@ -22,6 +24,8 @@
 	/** If you need to do any extra app-specific initialization, you can do it here
 	 *  -jm
 	 **/
+CLLocationManager* locationManager = [[CLLocationManager alloc] init];
+[locationManager startUpdatingLocation];
     return [super init];
 }
 
@@ -35,8 +39,8 @@
 	[[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: &setCategoryError];
 
 	// ivar, initialized to UIBackgroundTaskInvalid in awakeFromNib
-	UIBackgroundTaskIdentifier bgTaskId; 
-
+	
+	UIBackgroundTaskIdentifier bgTask; 
 	if ([audioPlayer play]) {
 	  bgTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
 	}
@@ -88,6 +92,62 @@
 
     bgTaskId = newTaskId;
 }      
+
+// if the iOS device allows background execution,
+// this Handler will be called
+- (void)backgroundHandler {
+
+    NSLog(@"### -->VOIP backgrounding callback");
+
+    UIApplication*    app = [UIApplication sharedApplication];
+
+    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+        [app endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    }];
+
+    // Start the long-running task 
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+    while (1) {
+        NSLog(@"BGTime left: %f", [UIApplication sharedApplication].backgroundTimeRemaining);
+           [self doSomething];
+        sleep(1);
+    }   
+});     
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+
+    UIApplication*    app = [UIApplication sharedApplication];
+
+    // it's better to move "dispatch_block_t expirationHandler"
+    // into your headerfile and initialize the code somewhere else
+    // i.e. 
+    // - (void)applicationDidFinishLaunching:(UIApplication *)application {
+//
+// expirationHandler = ^{ ... } }
+    // because your app may crash if you initialize expirationHandler twice.
+    dispatch_block_t expirationHandler;
+    expirationHandler = ^{
+
+        [app endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+
+
+        bgTask = [app beginBackgroundTaskWithExpirationHandler:expirationHandler];
+    };
+
+    bgTask = [app beginBackgroundTaskWithExpirationHandler:expirationHandler];
+
+
+    // Start the long-running task and return immediately.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+        // inform others to stop tasks, if you like
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"MyApplicationEntersBackground" object:self];
+
+        // do your background work here     
+    }); 
 
 - (void)webViewDidFinishLoad:(UIWebView *)theWebView 
 {
