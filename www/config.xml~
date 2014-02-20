@@ -15,7 +15,7 @@
 
 
 
-    <author href="https://www.radiomedweb.com" email="info@radiomedweb.com">
+    <author href="https://www.radiomedweb.com" email="info_at_radiomedweb.com">
         Enrico Maria Caporossi
     </author>
 <preference name="phonegap-version"           value="3.1.0" />

@@ -72,23 +72,6 @@
 /**
  Called when the webview finishes loading.  This stops the activity view and closes the imageview
  */
-
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)success
-{
-    UIBackgroundTaskIdentifier newTaskId = UIBackgroundTaskInvalid;
-
-    if (self.haveMoreAudioToPlay) {
-        newTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
-        [self playNextAudioFile];
-    }
-
-    if (bgTaskId != UIBackgroundTaskInvalid) {
-        [[UIApplication sharedApplication] endBackgroundTask: bgTaskId];
-    }
-
-    bgTaskId = newTaskId;
-}      
-
 - (void)webViewDidFinishLoad:(UIWebView *)theWebView 
 {
 	// only valid if ExampleAudioStreamer.plist specifies a protocol to handle
