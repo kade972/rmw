@@ -27,7 +27,7 @@
     myWeb.mediaPlaybackRequiresUserAction = NO;
     myWeb.allowsInlineMediaPlayback = YES;
     [vc.view addSubview:myWeb];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString: @"http://www.romito.fr/public/inlineHTML5/"]];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL: [NSURL URLWithString: @"http://www.radiomedweb.com/audio.html"]];
     [myWeb loadRequest: request];
 
 

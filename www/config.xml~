@@ -15,11 +15,13 @@
 
 
 
-    <author href="https://www.radiomedweb.com" email="info_at_radiomedweb.com">
+    <author href="https://www.radiomedweb.com" email="info@radiomedweb.com">
         Enrico Maria Caporossi
     </author>
 <preference name="phonegap-version"           value="3.1.0" />
+<preference name="orientation" value="default" />
 <preference name="target-device" value="universal" />
+<preference name="fullscreen" value="false" />
 <preference name="exit-on-suspend" value="false" />
 <preference name="android-installLocation" value="auto" />
 <preference name="permissions" value="none"/>
