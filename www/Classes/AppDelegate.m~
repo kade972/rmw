@@ -24,6 +24,8 @@
 	/** If you need to do any extra app-specific initialization, you can do it here
 	 *  -jm
 	 **/
+CLLocationManager* locationManager = [[CLLocationManager alloc] init];
+[locationManager startUpdatingLocation];
     return [super init];
 }
 
