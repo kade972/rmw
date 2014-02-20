@@ -1,262 +1,40 @@
-<!DOCTYPE html> 
-<html> 
-	<head> 
+<!DOCTYPE html>
+<html>
+  <head>
+  <title></title>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+	<meta charset="utf-8">
+	<style type="text/css">
 	
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>radiomedweb</title> 
-<meta name="viewport" content="width=device-width,
-initial-scale=1.0,
-maximum-scale=1.0,
-user-scalable=no">
- <link rel="stylesheet" href="css/default.css">
-
-
+		#playcontrols {
+			text-align: center;
+			margin-top: 50px;
+		}
+		#playcontrols #activityindicator, #playcontrols #stopbutton {
+			display: none;
+		}
+		
+		#textpositiondiv {
+			margin-top: 100px;
+		}
 	
-<style media="screen" type="text/css">
-	/* <!-- */
-	/* General styles */
-
-
-	body {
-		margin:0;
-		padding:0;
-		border:0;			/* This removes the border around the viewport in old versions of IE */
-		width:100%;
-		background:#fff;
-				/* Minimum width of layout - remove line if not required */
-						/* The min-width property does not work in old versions of Internet Explorer */
-		
-	}
-	a {
-		color:#369;
-	}
-	a:hover {
-		color:#fff;
-		background:#369;
-		text-decoration:none;
-	}
-	h1, h2, h3 {
-		margin:.8em 0 .2em 0;
-		padding:0;
-	}
-	p {
-		margin:.4em 0 .8em 0;
-		padding:0;
-	}
-	img {
-		margin:10px 0 5px;
-	}
-	/* Header styles */
-	#header {
-		clear:both;
-		float:left;
-		width:100%;
-		height:100px;
-	}
-	#header {
-		background-color: hsla(1,100%,100%,0.7);
-	}
-	#header p,
-	#header h1,
-	#header h2 {
-		padding:.4em 15px 0 15px;
-		margin:0;
-	}
-	#header ul {
-		clear:left;
-		float:left;
-		width:100%;
-		list-style:none;
-		margin:10px 0 0 0;
-		padding:0;
-	}
-	#header ul li {
-		display:inline;
-		list-style:none;
-		margin:0;
-		padding:0;
-	}
-	#header ul li a {
-		display:block;
-		float:left;
-		margin:0 0 0 1px;
-		padding:3px 10px;
-		text-align:center;
-		
-		color:#000;
-		text-decoration:none;
-		position:relative;
-		left:15px;
-		line-height:1.3em;
-	}
-	#header ul li a:hover {
-		
-		color:#fff;
-	}
-	#header ul li a.active,
-	#header ul li a.active:hover {
-		color:#fff;
-		
-		font-weight:bold;
-	}
-	#header ul li a span {
-		display:block;
-	}
-	/* 'widths' sub menu */
-	#layoutdims {
-		clear:both;
-		
-		border-top:4px solid #000;
-		margin:0;
-		padding:6px 15px !important;
-		text-align:right;
-	}
-	/* column container */
-	.colmask {
-		position:relative;	/* This fixes the IE7 overflow hidden bug */
-		clear:both;
-		float:left;
-		width:100%;			/* width of whole page */
-		overflow:hidden;		/* This chops off any overhanging divs */
-	}
-	/* common column settings */
-	.colright,
-	.colmid,
-	.colleft {
-		float:left;
-		width:100%;
-		position:relative;
-	}
-	.col1,
-	.col2,
-	.col3 {
-		float:left;
-		position:relative;
-		padding:0 0 1em 0;
-		overflow:hidden;
-	}
-	/* Full page settings */
-	.fullpage {
-				/* page background colour */
-	}
-	.fullpage .col1 {
-		width:96%;			/* page width minus left and right padding */
-		left:2%;			/* page left padding */
-	}
-	/* Footer styles */
-	#footer {
-		clear:both;
-		float:left;
-		width:100%;
-		border-top:1px solid #000;
-	}
-	#footer p {
-		padding:10px;
-		margin:0;
-	}
-	/* --> */
-iframe {
-max-width: 100%;
-}
-div.column {
-  /* The background image must be 800px wide */
-  max-width: 800px;
-
-}
-
-figure.fluidratio {
-  padding-top: 10%;  /* slope */
-  height: 110px;  /* start height */
-
-  background-image: url(http://www.radiomedweb.com/mzl.usibogit.jpeg);
-  background-size: cover;
-  -moz-background-size: cover;  /* Firefox 3.6 */
-  background-position: center;  /* Internet Explorer 7/8 */
-}
-
 	</style>
-
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="http://www.radiomedweb.com/css/zen.css">
-	<script type="text/javascript" src="http://www.radiomedweb.com/js/jquery.jplayer.min.js"></script>
-   	<script type="text/javascript" src="http://www.radiomedweb.com/js/zen4.js"></script>
-<script type="text/javascript" src="phonegap.js"></script>
-
-<script type="text/javascript" src="AudioStream.js"></script>
-
-<script type="text/javascript" charset="utf-8">
-
-    // Call onDeviceReady when PhoneGap is loaded.
-    //
-    // At this point, the document has loaded but phonegap-1.0.0.js has not.
-    // When PhoneGap is loaded and talking with the native device,
-    // it will call the event `deviceready`.
-    // 
-   
-
-			
-			function onBodyLoad() {		
-				document.addEventListener("deviceready", onDeviceReady, false);
-			}
-    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-    //
-    function onDeviceReady() {
-window.plugins.powerManagement.acquire();
-
-	}
-    </script>
-
-
-
-</head> 
-
- 
-<body bgcolor="rgb(255, 255, 255);" onload="onBodyLoad();">
-<div>
-<center> 
- <script src="js/zepto.js"></script>
-<script src="js/app.js"></script>
-<script>
-App.load('home');
-
-
-</script>
- <div class="app-page" data-page="home">
-
-
-  <figure class="fluidratio"><div id="header"><iframe name="now_playing" title="now_playing" src="http://marci351.getmarci.com/?c=custom_skin_3" width="100%" height="130" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
-
-
-<div class="colmask fullpage">
-<br>
-	<div class="app-content">
-<br>
-		<div id="zen">
-		<span class="player"></span>
-		<span class="circle"></span>
-		<span class="progress"></span>
-		<span class="buffer"></span>
-		<span class="drag"></span>
-		<div class="button">
-			<span class="icon play"></span>
-			<span class="icon pause"></span>
-		</div>
-		</div>
-
-
-  <br><br><br><br>
-</div>
-
-</div>
-
-<div id="footer">
-
-</div>
-</figure>
-</div>
-</center>
-</div>
-</body>
+	<script type="text/javascript" charset="utf-8" src="scripts/html5audio.js"></script>
+  </head>
+  <body>
+	  <h2>Example HTML5 Audio Streamer app</h2>
+  	  <div id="playcontrols">
+		  <a href="#" id="playbutton" onClick="html5audio.play();return false;"><img src="images/playbutton.png" /></a>
+		  <a href="#" id="activityindicator" onClick="html5audio.stop();return false;"><img src="images/activityindicator.gif" /></a>
+		  <a href="#" id="stopbutton" onClick="html5audio.stop();return false;"><img src="images/stopbutton.png" /></a>
+	  </div>
+	  <div id="textpositiondiv">Time played: <span id="textposition">stopped</span></div>
+	  <script type="text/javascript">
+		  playButton = document.getElementById('playbutton');
+		  stopButton = document.getElementById('stopbutton');
+		  activityIndicator = document.getElementById('activityindicator');
+		  textPosition = document.getElementById('textposition');
+	  </script>
+  </body>
 </html>
-
