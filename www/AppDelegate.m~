@@ -1,5 +1,5 @@
-#import "ExampleAppDelegate.h"
-@implementation ExampleAppDelegate
+#import "AppDelegate.h"
+@implementation AppDelegate
 
 
 
