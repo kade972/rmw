@@ -3,14 +3,14 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.radiomedweb.player"
         versionCode = "10" 
-        version     = "2.0.0" >
+        version     = "2.0.1" >
 
     <!-- versionCode is optional and Android only -->
 
-    <name>RMW</name>
+    <name>Radio Evolution</name>
 
     <description>
-        Music is the Message! 
+        be Ready !
     </description>
 
 
@@ -18,7 +18,7 @@
     <author href="https://www.radiomedweb.com" email="info@radiomedweb.com">
         Enrico Maria Caporossi
     </author>
-<preference name="phonegap-version"           value="3.1.0" />
+<preference name="phonegap-version"           value="3.7.0" />
 <preference name="orientation" value="default" />
 <preference name="target-device" value="universal" />
 <preference name="fullscreen" value="false" />
